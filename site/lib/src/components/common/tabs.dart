@@ -2,17 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_content/jaspr_content.dart';
 
 import '../../util.dart';
 
 /// A tabs component where children tabs can be switched between by the user.
-class DashTabs implements CustomComponent {
+class DashTabs extends CustomComponent {
   static int _currentTabWrapperId = 0;
   static int _currentTabId = 0;
 
-  const DashTabs();
+  const DashTabs() : super.base();
 
   @override
   Component? create(Node node, NodesBuilder builder) {
@@ -94,7 +95,7 @@ class _DashTabsWrapper extends StatelessComponent {
                     'aria-controls': tab.panelId,
                     'aria-selected': '${tab.isActive}',
                   },
-                  [text(tab.tabName)],
+                  [.text(tab.tabName)],
                 ),
               ]),
           ],
